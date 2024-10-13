@@ -119,7 +119,6 @@ export enum EntityType {
   ZOMBIE_VILLAGER,
   ZOMBIFIED_PIGLIN,
 }
-
 export enum MaterialType {
   ACACIA_BOAT,
   ACACIA_BUTTON,
@@ -1449,7 +1448,6 @@ export enum MaterialType {
   ZOMBIE_WALL_HEAD,
   ZOMBIFIED_PIGLIN_SPAWN_EGG,
 }
-
 export enum PotionType {
   AWKWARD,
   FIRE_RESISTANCE,
@@ -1473,14 +1471,12 @@ export enum PotionType {
   WATER_BREATHING,
   WEAKNESS,
 }
-
 export enum ArmorSlots {
   HELMET,
   CHESTPLATE,
   LEGGINGS,
   BOOTS,
 }
-
 export enum DropSlots {
   HELMET,
   CHESTPLATE,
@@ -1490,18 +1486,15 @@ export enum DropSlots {
   "OFF-HAND",
   RANDOM,
 }
-
 export enum Gamemodes {
   SURVIVAL,
   GAMEMODE,
   ADVENTURE,
   SPECTATOR,
 }
-
 export enum AlertType {
   BOSSBAR,
   ACTIONBAR,
 }
-
 export type Ticks = number;
 export type Seconds = number;

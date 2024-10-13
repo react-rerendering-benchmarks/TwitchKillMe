@@ -13,11 +13,13 @@ const givePreset: GivePreset = {
 };
 const give = new Preset(PresetType.GivePreset, givePreset);
 export default memo(function ShopCart() {
+  console.log(window.globalCount++);
   const items = useStore(itemsStorage);
   function click() {
     addCartItem(give);
   }
   const listPresets = Object.keys(items).map(key => {
+    console.log(window.globalCount++);
     const reward = items[key];
     return <PresetContainer id={key} item={reward} />;
   });

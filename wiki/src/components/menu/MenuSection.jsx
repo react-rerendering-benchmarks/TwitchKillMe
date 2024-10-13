@@ -2,11 +2,13 @@ import { useRef } from "react";
 import { memo } from "react";
 import { useState } from "react";
 function MenuSection(props) {
+  console.log(window.globalCount++);
   const drop = useRef(props.drop);
   function toggleDrop() {
     drop.current = !drop.current;
   }
   const Content = memo(function Content() {
+    console.log(window.globalCount++);
     if (!drop.current) return null;
     return <div className="mt-2 mb-4">{props.children}</div>;
   });
