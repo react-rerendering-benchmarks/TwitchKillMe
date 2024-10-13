@@ -1,20 +1,21 @@
 export const SITE = {
   title: "TwitchKillMe",
   description: "Plugin for mc",
-  defaultLanguage: "en_US",
+  defaultLanguage: "en_US"
 };
-
 export type Frontmatter = {
   title: string;
   description: string;
   layout: string;
   currentPathMenu: Array<string>;
-  image?: { src: string; alt: string };
+  image?: {
+    src: string;
+    alt: string;
+  };
   dir?: "ltr" | "rtl";
   ogLocale?: string;
   lang?: string;
 };
-
 export const MENU_LANGS = {
   "en-us": {
     name: "en-us",
@@ -23,7 +24,7 @@ export const MENU_LANGS = {
         name: "Getting Started",
         installation: "Installation",
         tokens: "Twitch tokens",
-        config: "Configuration",
+        config: "Configuration"
       },
       presets: {
         name: "Presets",
@@ -40,15 +41,15 @@ export const MENU_LANGS = {
         "clear-inventory": "Clear inventory",
         "random-reward": "Random reward",
         "multi-reward": "Multi reward",
-        "potions-rain": "Potion rain",
-      },
+        "potions-rain": "Potion rain"
+      }
     },
     footer: {
       config_files: "Config files",
       languages: "Languages",
       langs: ["English", "Spanish"],
       other_links: "Other links",
-      others: ["Spigot Page", "License (MIT)", "Docs"],
-    },
-  },
+      others: ["Spigot Page", "License (MIT)", "Docs"]
+    }
+  }
 };
