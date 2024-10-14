@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function MenuSection(props) {
-  console.log(window.globalCount++);
+  useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
   const [drop, setDrop] = useState(props.drop);
   function toggleDrop() {
     setDrop(!drop);
   }
   function Content() {
-    console.log(window.globalCount++);
+    useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
     if (!drop) return null;
     return <div className="mt-2 mb-4">{props.children}</div>;
   }

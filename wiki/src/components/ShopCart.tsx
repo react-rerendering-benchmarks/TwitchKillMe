@@ -2,6 +2,7 @@ import { useStore } from "@nanostores/react";
 import { itemsStorage, addCartItem } from "../stores/cartStorage";
 import { MaterialType, GivePreset, Preset, PresetType } from "../types";
 import PresetContainer from "./PresetContainer";
+import { useEffect } from "react";
 const givePreset: GivePreset = {
   name: "xd",
   "custom-model": 0,
@@ -12,13 +13,27 @@ const givePreset: GivePreset = {
 };
 const give = new Preset(PresetType.GivePreset, givePreset);
 export default function ShopCart() {
-  console.log(window.globalCount++);
+  useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
   const items = useStore(itemsStorage);
   function click() {
     addCartItem(give);
   }
   const listPresets = Object.keys(items).map(key => {
-    console.log(window.globalCount++);
+    useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
     const reward = items[key];
     return <PresetContainer id={key} item={reward} />;
   });

@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "./menu/Menu";
 function Header({
   title,
   lang,
   currentPathMenu
 }) {
-  console.log(window.globalCount++);
+  useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
   const [hideMenu, setHideMenu] = useState(true);
   const togleMenu = () => {
     setHideMenu(!hideMenu);
