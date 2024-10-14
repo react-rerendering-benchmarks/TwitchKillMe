@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import MenuSection from "./MenuSection";
 import MenuElement from "./MenuElement";
 function Menu({
@@ -6,7 +6,14 @@ function Menu({
   active,
   currentPathMenu
 }) {
-  console.log(window.globalCount++);
+  useEffect(() => {
+    if (window) {
+      if (window.globalCount === undefined) {
+        window.globalCount = 0;
+      }
+      console.log(window.globalCount++);
+    }
+  });
   if (!active) return null;
   return <div className="flex flex-col w-full bg-tkm_gray_dark text-tkm_white mt-3 pl-2">
       <MenuSection title={lang.menu.getting_started.name} drop={currentPathMenu.includes("getting-started")}>
