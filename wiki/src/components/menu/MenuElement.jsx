@@ -7,7 +7,7 @@ function MenuElement({
   useEffect(() => {
     if (window) {
       if (window.globalCount === undefined) {
-        window.globalCount = 0;
+        window.globalCount = window.globalCount || 0;
       }
       console.log(window.globalCount++);
     }

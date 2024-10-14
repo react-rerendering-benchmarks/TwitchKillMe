@@ -9,14 +9,14 @@ const givePreset: GivePreset = {
   amount: 1,
   lore: ["a"],
   slot: -1,
-  material: MaterialType.ACACIA_LEAVES
+  material: MaterialType.ACACIA_LEAVES,
 };
 const give = new Preset(PresetType.GivePreset, givePreset);
 export default function ShopCart() {
   useEffect(() => {
     if (window) {
       if (window.globalCount === undefined) {
-        window.globalCount = 0;
+        window.globalCount = window.globalCount || 0;
       }
       console.log(window.globalCount++);
     }
@@ -25,24 +25,29 @@ export default function ShopCart() {
   function click() {
     addCartItem(give);
   }
-  const listPresets = Object.keys(items).map(key => {
+  const listPresets = Object.keys(items).map((key) => {
     useEffect(() => {
-    if (window) {
-      if (window.globalCount === undefined) {
-        window.globalCount = 0;
+      if (window) {
+        if (window.globalCount === undefined) {
+          window.globalCount = window.globalCount || 0;
+        }
+        console.log(window.globalCount++);
       }
-      console.log(window.globalCount++);
-    }
-  });
+    });
     const reward = items[key];
     return <PresetContainer id={key} item={reward} />;
   });
-  return <div className="w-full px-2">
+  return (
+    <div className="w-full px-2">
       <div>
-        <button onClick={click} className="text-tkm_white bg-tkm_purple_dark p-3 rounded-md active:bg-tkm_purple transition-all">
+        <button
+          onClick={click}
+          className="text-tkm_white bg-tkm_purple_dark p-3 rounded-md active:bg-tkm_purple transition-all"
+        >
           Add item!
         </button>
       </div>
       <div>{listPresets}</div>
-    </div>;
+    </div>
+  );
 }
